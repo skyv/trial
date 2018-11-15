@@ -69,12 +69,8 @@
                 var idx = activePoints[0]['_index'];
         
                 var label = chartData.labels[idx];
-                var value = chartData.datasets[0].data[idx];
-                var color = chartData.datasets[0].backgroundColor[idx]; //Or any other data you wish to take from the clicked slice
                 
                 drawDrillDownChart(label, 'campaignDetails');
-                
-                // alert(label + ' ' + value + ' ' + color); //Or any other function you want to execute. I sent the data to the server, and used the response i got from the server to create a new chart in a Bootstrap modal.
                 }
             };
         }
@@ -109,21 +105,6 @@
                     responsive: true
                 }
             } );
-            // ctx.onclick = function(evt) {
-            //     var activePoints = myChart.getElementsAtEvent(evt);
-            //     if (activePoints[0]) {
-            //     var chartData = activePoints[0]['_chart'].config.data;
-            //     var idx = activePoints[0]['_index'];
-        
-            //     var label = chartData.labels[idx];
-            //     var value = chartData.datasets[0].data[idx];
-            //     var color = chartData.datasets[0].backgroundColor[idx]; //Or any other data you wish to take from the clicked slice
-                
-            //     // drawDrillDownChart(label, 'campaignDetails');
-            //     showCampaignSection(label);
-            //     // alert(label + ' ' + value + ' ' + color); //Or any other function you want to execute. I sent the data to the server, and used the response i got from the server to create a new chart in a Bootstrap modal.
-            //     }
-            // };
         }
     }
 
@@ -168,12 +149,8 @@
                 var idx = activePoints[0]['_index'];
         
                 var label = chartData.labels[idx];
-                var value = chartData.datasets[0].data[idx];
-                var color = chartData.datasets[0].backgroundColor[idx]; //Or any other data you wish to take from the clicked slice
                 
-                // drawDrillDownChart(label, 'campaignDetails');
                 showCampaignSection(label);
-                // alert(label + ' ' + value + ' ' + color); //Or any other function you want to execute. I sent the data to the server, and used the response i got from the server to create a new chart in a Bootstrap modal.
                 }
             };
         }
@@ -282,26 +259,20 @@
         let labelText = (identifier == 'Success') ? 'Successful Campaign Details' : 'Failed Campaign Details';
         var ctx;
         let input = [];
-        // $('#singelBarChartForSuccess, #singelBarChartForFailed').hide();
         if(identifier == 'Success') {
             input.push(campaignResultResponseData.successfullCampaign.split.email);
             input.push(campaignResultResponseData.successfullCampaign.split.webpush);
             input.push(campaignResultResponseData.successfullCampaign.split.whatsapp);
-            // $('#singelBarChartForSuccess').show();
-            // ctx = document.getElementById( "singelBarChartForSuccess" );
         } else if(identifier == 'Failed') {
             input.push(campaignResultResponseData.failedCampaigned.split.email);
             input.push(campaignResultResponseData.failedCampaigned.split.webpush);
             input.push(campaignResultResponseData.failedCampaigned.split.whatsapp);
-            // $('#singelBarChartForFailed').show();
-            // ctx = document.getElementById( "singelBarChartForFailed" );
         }
         // single bar chart
         $('.singel-bar-chart-wrapper').show();
         $("canvas#singelBarChart").remove();
         $("div#drillDownGraph").append('<canvas id="singelBarChart" class="animated fadeIn" height="150"></canvas>');
         var ctx = document.getElementById("singelBarChart").getContext("2d");
-        // var ctx = document.getElementById( "singelBarChart" );
         ctx.height = 150;
         var myChart = new Chart( ctx, {
             type: 'bar',
