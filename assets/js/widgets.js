@@ -25,11 +25,11 @@
     var myChart = new Chart( ctx, {
         type: 'line',
         data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct" ],
             type: 'line',
             datasets: [ {
-                data: [65, 59, 84, 84, 51, 55, 40],
-                label: 'Dataset',
+                data: [865, 959, 784, 984, 851, 655, 940],
+                label: 'Online Users',
                 backgroundColor: 'transparent',
                 borderColor: 'rgba(255,255,255,.55)',
             }, ]
