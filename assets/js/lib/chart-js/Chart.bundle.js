@@ -18,7 +18,6 @@ module.exports = {
    getHsl: getHsl,
    getHwb: getHwb,
    getAlpha: getAlpha,
-
    hexString: hexString,
    rgbString: rgbString,
    rgbaString: rgbaString,
